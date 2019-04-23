@@ -34,45 +34,41 @@ $this->load->view('template/sidebar');
 </section>
 
 <!-- Main content -->
-<section class="content">
-    
-    
-<div class="container" style="width: 900px; margin-top: 50px;">
-                <table class="table">
+<section class="content">   
+    <div class="container" style="width: 1000px; margin-top: 50px;">
+                <table class="table" style="border: 1px solid black">
                     <h1 class="text-center">Kelola Pesanan</h1>
-                    <thead>
-                                <tr class="text-center text-bold">
-                                    <td class="col">No</td>
-                                    <td class="col text-center">Nama</td>
-                                    <td class="col text-center">Alamat</td>
-                                    <td class="col text-center">No Hp</td>
-                                    <td class="col text-center">Tgl Masuk</td>
-                                    <td class="col text-center">Tgl Keluar</td>
-                                    <td class="col text-center">Jenis</td>
-                                    <td class="col text-center">Kg</td>
-                                    <td class="col text-center">Harga</td>
-                                    <td class="col text-center">Status</td>
-                                    <!-- <td class="col text-center">Kg</td>
-                                    <td class="col text-center">Harga</td>
-                                    <td class="col text-center">Status</td> -->
+                        <thead>
+                                <tr class="text-left text-bold" style="border: 1px solid black">
+                                    <td class="col" style="border: 1px solid black">No</td>
+                                    <td class="col text-center" style="border: 1px solid black">Nama</td>
+                                    <td class="col text-center" style="border: 1px solid black">Alamat</td>
+                                    <td class="col text-center" style="border: 1px solid black">No Hp</td>
+                                    <td class="col text-center" style="border: 1px solid black">Tgl Masuk</td>
+                                    <td class="col text-center" style="border: 1px solid black">Tgl Keluar</td>
+                                    <td class="col text-center" style="border: 1px solid black">Jenis</td>
+                                    <td class="col text-center" style="border: 1px solid black">Kg</td>
+                                    <td class="col text-center" style="border: 1px solid black">Harga</td>
+                                    <td class="col text-center" style="border: 1px solid black">Status</td>
+                                    <td class="col text-center" style="border: 1px solid black">Aktivitas</td>
                                 </tr>
-                    </thead>
+                        </thead>
                        <tbody>
                         <?php
                             $i = 0;
                             foreach ($pesanan_laundry->result() as $key => $value) {
                                 ?>
                                 <tr class="text-center">
-                                    <th scope="row"><?php echo ++$i; ?></th>
-                                    <td><?php echo $value->nama; ?></td>
-                                    <td><?php echo $value->alamat; ?></td>
-                                    <td><?php echo $value->no_hp; ?></td>
-                                    <td><?php echo $value->tgl_masuk; ?></td>
-                                    <td><?php echo $value->tgl_keluar; ?></td>
-                                    <td><?php echo $value->jenis; ?></td>
-                                    <td><?php echo $value->kg; ?></td>
-                                    <td><?php echo $value->harga; ?></td>
-                                    <td><?php echo $value->status; ?></td>
+                                    <th class="text-center" style="border: 1px solid black"><?php echo ++$i; ?></th>
+                                    <td style="border: 1px solid black"><?php echo $value->nama; ?></td>
+                                    <td style="border: 1px solid black"><?php echo $value->alamat; ?></td>
+                                    <td style="border: 1px solid black"><?php echo $value->no_hp; ?></td>
+                                    <td style="border: 1px solid black"><?php echo $value->tgl_masuk; ?></td>
+                                    <td style="border: 1px solid black"><?php echo $value->tgl_keluar; ?></td>
+                                    <td style="border: 1px solid black"><?php echo $value->jenis; ?></td>
+                                    <td style="border: 1px solid black"><?php echo $value->kg; ?></td>
+                                    <td style="border: 1px solid black"><?php echo $value->harga; ?></td>
+                                    <td style="border: 1px solid black"><?php echo $value->status; ?></td>
                                     <!-- <td><?php echo $value->status; ?></td> -->
                                     <!-- <td><?php echo $value->kg; ?></td>
                                     <td><?php echo $value->harga; ?></td> -->

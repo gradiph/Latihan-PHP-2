@@ -121,11 +121,21 @@ class Nes_laundry extends CI_Model {
 	{
 		$this->db->select("laundry_anakan.*, laundry_induk.nama, laundry_induk.alamat, laundry_induk.no_hp, laundry_induk.tgl_masuk, laundry_induk.tgl_keluar");
 		$this->db->join('laundry_anakan', 'laundry_induk.id = laundry_anakan.id_laundry_induk');
-
-		// $this->db->where('tgl_masuk', $this->input->get('tgl_masuk'));
+		$this->db->where('tgl_masuk', $this->input->get('tanggal'));
+		
 		// $this->db->order_by("jenis, kg, harga");
 		$panggil_data = $this->db->get('laundry_induk');
 		return $panggil_data->result();
+	}
+
+	public function modal_tabel($id_laundry_induk)
+	{
+		$this->db->select("laundry_induk.*, laundry_anakan.id_laundry_induk, laundry_anakan.jenis, laundry_anakan.kg, laundry_anakan.harga");
+		$this->db->join('laundry_induk', 'laundry_induk.id = laundry_anakan.id_laundry_induk');
+		$this->db->where('id_laundry_induk', $id_laundry_induk);
+
+		$data = $this->db->get('laundry_anakan');
+		return $data->result();
 	}
 
 	// SELECT laundry_anakan.*, laundry_induk.nama, laundry_induk.alamat, laundry_induk.no_hp, laundry_induk.tgl_masuk, laundry_induk.tgl_keluar FROM `laundry_induk` JOIN laundry_anakan ON (laundry_induk.id = laundry_anakan.id_laundry_induk)

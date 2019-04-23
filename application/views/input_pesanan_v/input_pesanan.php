@@ -59,9 +59,6 @@ $this->load->view('template/sidebar');
                                 <td><input type="text" name="jenis" id="jenis" class="form-control" required autofocus maxlength="20" placeholder="Input Jenis Pakaian"></td>
                         </tr>
                         <tr>
-                            <td class="text-center"><span class="btn-nama data-nama">Untuk Macam2 Jenis</span></td>
-                        </tr>
-                        <tr>
                             <th><label for="kg">Kilogram</label></th>
                                 <td><input type="text" name="kg" id="kg" class="form-control" autofocus maxlength="20" placeholder="Input Kilogram"></td>
                         </tr>
@@ -84,74 +81,6 @@ $this->load->view('template/sidebar');
                 </table>
         </div>
 </section>
-
-            <!-- Modal 2 -->
-            <div class="modal fade" id="contoh2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document" style="width: 800px;">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Input Jenis Campuran</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <table class="table table-striped bg-secondary text-light">
-                                <!-- <tr>
-                                    <span id="modal-nama"></span><input type="text" name="nama"><br>
-                                    Tempat, Tanggal lahir : <span id="modal-ttl"></span><br>
-                                    Alamat : <span id="modal-alamat"></span><br>
-                                    Telephon : <span id="modal-telephon"></span><br>
-                                    Agama : <span id="modal-agama"></span><br>
-                                    Jabatan : <span id="modal-jabatan"></span>
-                                </tr> -->
-                                <thead class="bg-info text-light">
-                                    <tr>
-                                        <th class="text-center" scope="col">No</th>
-                                        <th class="text-center" scope="col">Jenis</th>
-                                        <th class="text-center" scope="col">Kg</th>
-                                        <th class="text-center" scope="col">Harga</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <form action="<?php echo base_url(); ?>index.php/INPUT_PESANAN_COL/Input_pesanan_col/input_pesanan_pegawai" method="post">
-                                    <tr>
-                                        <th class="text-center" scope="col">1</th>
-                                        <th class="text-center" scope="col"><input type="text" name="jenis" class="form-control"></th>
-                                        <th class="text-center" scope="col"><input type="text" name="kg" class="form-control"></th>
-                                        <th class="text-center" scope="col"><input type="text" name="harga" class="form-control"></th>
-                                    </tr>
-                                     <tr>
-                                        <th class="text-center" scope="col">2</th>
-                                        <th class="text-center" scope="col"><input type="text" name="jenis"></th>
-                                        <th class="text-center" scope="col"><input type="text" name="kg"></th>
-                                        <th class="text-center" scope="col"><input type="text" name="harga"></th>
-                                    </tr>
-                                     <tr>
-                                        <th class="text-center" scope="col">3</th>
-                                        <th class="text-center" scope="col"><input type="text" name="jenis"></th>
-                                        <th class="text-center" scope="col"><input type="text" name="kg"></th>
-                                        <th class="text-center" scope="col"><input type="text" name="harga"></th>
-                                    </tr>
-                                     <tr>
-                                        <th class="text-center" scope="col">4</th>
-                                        <th class="text-center" scope="col"><input type="text" name="jenis"></th>
-                                        <th class="text-center" scope="col"><input type="text" name="kg"></th>
-                                        <th class="text-center" scope="col"><input type="text" name="harga"></th>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <tfoot>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="submit" class="btn btn-primary" data-dismiss="modal" name="simpan">Submit</button>
-                            </div>
-                        </tfoot>
-                    </div>
-                </div>
-            </div>
-
 
 <?php
 $this->load->view('template/js');
@@ -227,21 +156,6 @@ $this->load->view('template/js');
                 }
             );
         });
-    });
-</script>
-
-<script>
-    //trigger click pada nama karyawan (Pake Bootstrap)
-    $(".btn-nama").click(function () {
-    //memanggil modal
-    $('#contoh2').modal('show');
-    //update isi modal
-    $("#modal-nama").html($(this).parent().parent().find(".data-nama").text());
-    $("#modal-ttl").html($(this).parent().parent().find(".data-ttl").text());
-    $("#modal-alamat").html($(this).parent().parent().find(".data-alamat").text());
-    $("#modal-telephon").html($(this).parent().parent().find(".data-telephon").text());
-    $("#modal-agama").html($(this).parent().parent().find(".data-agama").text());
-    $("#modal-jabatan").html($(this).parent().parent().find(".data-jabatan").text());
     });
 </script>
 

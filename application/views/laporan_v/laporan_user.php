@@ -40,32 +40,28 @@ $this->load->view('template/sidebar');
          <h2 class="text-center" style="text-align: center; margin-top: 50px;">Rekap Penjualan</h2>
         <h3 class="text-center" style="text-align: center;">Tanggal : <?php echo $tanggal ?></h3>
         <div class="row">
-            <div class="col-md-12 text-center">
-                <table class="table table-bordered table-hover" border="2">
-                    <thead>
-                        <tr>
-                            <th>No</th>
-                            <th>Nama</th>
-                            <th>Alamat</th>
-                            <th>No Hp</th>
-                            <th>Tgl Masuk/Tgl Keluar</th>
-                            <!-- <th>Jenis</th>
-                            <th>Kg</th> -->
-                            <th>Harga</th>
-                            <!-- <th>Harga barang</th>
-                            <th>Sub Total</th> -->
+            <div class="col-md-12">
+                <table class="table" style="border: 1px solid black" border="1">  
+                    <thead style="text-align: center;">
+                        <tr> 
+                            <th style="border: 1px solid black">No</th>
+                            <th style="border: 1px solid black">Nama</th>
+                            <th style="border: 1px solid black">Alamat</th>
+                            <th style="border: 1px solid black">No Hp</th>
+                            <th style="border: 1px solid black">Tgl Masuk/Tgl Keluar</th>
+                            <th style="border: 1px solid black">Harga</th>
                         </tr>
 
                     </thead>
                     <tbody>
                     <?php 
-                    $harga_barang2 = 0;
-                    $total_harga = 0;
-                    $total_kuantitas = 0;
                     $no = 1;
                     $id_laundry_induk_sebelumnya = 0; 
                     $harga = 0;
+                    $total_harga = 0;
                         foreach ($panggil_data as $key => $row) {
+                             
+                            $total_harga += $row->harga;
                             //jika id_laundry_induk data yg sedang diproses sama dengan id_laundry_induk data sebelumnya
                             if ($row->id_laundry_induk == $id_laundry_induk_sebelumnya) {
                                 //kalau berhasil diTRAKTIR MAKAN GAES
@@ -91,13 +87,13 @@ $this->load->view('template/sidebar');
                                 
                                     <tr>
                                         <th><?php echo $no++; ?></th>
-                                        <th><?php echo $row->nama; ?></th>
-                                        <th><?php echo $row->alamat; ?></th>
-                                        <th><?php echo $row->no_hp; ?></th>
-                                        <th><?php echo $row->tgl_masuk .' | '. $row->tgl_keluar; ?></th>
+                                        <td><span class="btn-nama data-nama" data-id_laundry_induk="<?php echo $row->id_laundry_induk; ?>"><?php echo $row->nama; ?></span></td>
+                                        <td><?php echo $row->alamat; ?></td>
+                                        <td><?php echo $row->no_hp; ?></td>
+                                        <td><?php echo $row->tgl_masuk .' | '. $row->tgl_keluar; ?></td>
                                        <!--  <th><?php echo $row->jenis; ?></th>
                                         <th><?php echo $row->kg; ?></th> -->
-                                        <th><span id="total-harga-<?php echo $row->id_laundry_induk; ?>"><?php echo $row->harga; ?></span></th>
+                                        <td><span id="total-harga-<?php echo $row->id_laundry_induk; ?>"><?php echo $row->harga; ?></span></td>
                                     </tr>
                                 
 
@@ -110,31 +106,42 @@ $this->load->view('template/sidebar');
 
                             //simpan id_laundry_induk data yg skrg sebagai id_laundry_induk_sebelumnya (untuk dibandingkan pada row berikutnya)
                             $id_laundry_induk_sebelumnya = $row->id_laundry_induk;
-                            $harga += $row->harga;
+                            // $total_harga = $harga += $row->harga;
                         }
                         
                      ?>
                      </tbody>
                      <tfoot>
-                        <tr style="font-weight: bold;">
+                        <tr style="font-weight: bold;" >
                            <!--  <td colspan="0" class="text-left">Jumlah</td> -->
-                            <td class="text-left" colspan="4"></td>
-                            <td class="text-left">Jumlah</td>
-                            <td class="text-left"><?php $angka_format = number_format($row->harga,0,",",".");
-                             echo $angka_format; ?></td>
-                            
-                            
-                           
-                            <!-- <td><<?php echo $sum_jumlah->jumlah; ?></td> -->
-                           <!--  <td class="text-right" colspan="1"><?php echo number_format($harga_barang2,0,",","."); ?></td> -->
+                            <td class="text-left" colspan="4" style="border: 1px solid black"></td>
+                            <td class="text-left" style="border: 1px solid black">Jumlah</td>
+                            <td class="text-left" style="border: 1px solid black"><?php echo $total_harga; ?></td>
+                            <!-- <td class="text-left"><?php $angka_format = number_format($row->harga,0,",",".");
+                             echo $angka_format; ?></td> -->
                         </tr>
                     </tfoot>
                 </table>
             </div>
         </div>
     </div>
-
 </section>
+
+    <div class="modal fade" id="contoh2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body"></div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
 
 <?php
@@ -215,7 +222,20 @@ $this->load->view('template/js');
             );
         });
 
-        
+        $(".btn-nama").click(function () {
+                    //memanggil modal
+                    $('#contoh2').modal('show');
+                    //update isi modal
+
+
+                    $(".modal-body").load('<?php echo base_url('index.php/LAPORAN_COL/Laporan_col/laporan_detail_user?id_laundry_induk='); ?>' + $(this).data('id_laundry_induk'));
+                    
+                });
+
+        $("#contoh2").on("shown.bs.modal", function () {
+            alert("sukses");
+        });
+
     });
 </script>
 <?php

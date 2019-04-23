@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 16, 2019 at 10:31 AM
+-- Generation Time: Apr 23, 2019 at 05:15 PM
 -- Server version: 10.1.33-MariaDB
 -- PHP Version: 7.2.6
 
@@ -80,8 +80,8 @@ CREATE TABLE `laundry_induk` (
 --
 
 INSERT INTO `laundry_induk` (`id`, `nama`, `alamat`, `no_hp`, `tgl_masuk`, `tgl_keluar`, `status`) VALUES
-(1, 'rossi', 'itali', '09211222', '2019-04-04', '2019-04-06', 'Menimbang Laundry'),
-(4, 'nasution', 'uber', '912313913', '2019-04-08', '2019-04-10', 'Menimbang Laundry'),
+(1, 'rossi', 'itali', '09211222', '2019-04-04', '2019-04-06', 'Belum Dikerjakan'),
+(4, 'nasution', 'uber', '912313913', '2019-04-08', '2019-04-10', 'Belum Dikerjakan'),
 (5, 'Gradi', 'nangor', '9131313199', '2019-04-08', '2019-04-10', 'Belum dikerjakan'),
 (8, 'fany', 'uber', '131312213', '2019-04-08', '2019-04-10', 'Belum dikerjakan'),
 (9, 'lorexo', 'spain', '13213123', '2019-04-10', '2019-05-10', 'Belum dikerjakan'),

@@ -20,21 +20,17 @@ class INPUT_PESANAN_CAMPURAN_COL extends CI_Controller {
 		$jenis = $this->input->post('jenis');
 		$kg = $this->input->post('kg');
 		$harga = $this->input->post('harga');
-		// $status = $this->input->post('status');
+		
 
 		$data = array(
 			'nama' => $nama,
 			'alamat' => $alamat,
 			'no_hp' => $no_hp,
-			// 'jenis' => $jenis,
-			// 'kg' => $kg,
-			// 'harga' => $harga,
 			'tgl_masuk' => $tgl_masuk,
 			'tgl_keluar' => $tgl_keluar,
 			'status' => 'Belum dikerjakan'	
 		);
 
-		// $data['id_laundry_induk'] = $this->Nes_laundry->masuk_data();
 		
 		$this->Nes_laundry->input_pesanan_pegawai_campuran_model($data, $jenis, $kg, $harga);
 		redirect('HOME_COL/Home_col');

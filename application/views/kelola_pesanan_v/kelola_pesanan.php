@@ -35,9 +35,9 @@ $this->load->view('template/sidebar');
 
 <!-- Main content -->
 <section class="content">   
-    <div class="container" style="width: 1000px; margin-top: 50px;">
+    <div class="container" style="width: 1000px; margin-top: 10px;">
+         <h1 class="text-center">Kelola Pesanan</h1>
                 <table class="table" style="border: 1px solid black">
-                    <h1 class="text-center">Kelola Pesanan</h1>
                         <thead>
                                 <tr class="text-left text-bold" style="border: 1px solid black">
                                     <td class="col" style="border: 1px solid black">No</td>
@@ -69,15 +69,7 @@ $this->load->view('template/sidebar');
                                     <td style="border: 1px solid black"><?php echo $value->kg; ?></td>
                                     <td style="border: 1px solid black"><?php echo $value->harga; ?></td>
                                     <td style="border: 1px solid black"><?php echo $value->status; ?></td>
-                                    <!-- <td><?php echo $value->status; ?></td> -->
-                                    <!-- <td><?php echo $value->kg; ?></td>
-                                    <td><?php echo $value->harga; ?></td> -->
-                                    <!-- <td><span class="span-status"><?php echo $value->status; ?></span></td> -->
-                                    <td>
-                                         <!-- <button class="btn btn-info btn-status" data-id="<?php echo $value->id; ?>" data-status="Belum Dikerjakan">Belum Dikerjakan</button>
-                                        <button class="btn btn-info btn-status" data-id="<?php echo $value->id; ?>" data-status="Menimbang Laundry">Menimbang Laundry</button>
-                                        <button class="btn btn-info btn-status" data-id="<?php echo $value->id; ?>" data-status="Selesai">Selesai</button> -->
-                                       
+                                    <td>  
                                     <select class="select-status">
                                             <option data-id="<?php echo $value->id; ?>" data-status="Belum Dikerjakan">Belum Dikerjakan</option>
                                             <option data-id="<?php echo $value->id; ?>" data-status="Menimbang Laundry">Menimbang Laundry</option>

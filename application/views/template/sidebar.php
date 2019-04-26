@@ -38,10 +38,14 @@
                 </a>
             </li>            
             <li class="treeview">
-                <a href="<?php echo site_url('LAPORAN_COL/Laporan_col'); ?>">
+                <a href="<?php echo site_url(''); ?>">
                     <i class="fa fa-laptop"></i>
                     <span>Laporan</span>
                 </a>
+                 <ul class="treeview-menu">
+                    <li><a href="<?php echo site_url('LAPORAN_COL/Laporan_col') ?>"><i class="fa fa-circle-o"></i> Laporan Harian</a></li>
+                    <li><a href="<?php echo site_url('LAPORAN_COL/Laporan_bulanan_col') ?>"><i class="fa fa-circle-o"></i> Laporan Bulanan</a></li>
+                </ul>
             </li>
         </ul>
     </section>

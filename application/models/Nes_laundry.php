@@ -47,7 +47,6 @@ class Nes_laundry extends CI_Model {
 	public function masuk_data()
 	{
 		$this->db->select('jenis, kg, harga');
-		// $this->db->from('laundry_induk');
 		$this->db->join('laundry_anakan', 'laundry_induk.id = laundry_anakan.id_laundry_induk');
 
 		$tampil_data = $this->db->get('laundry_induk');
@@ -59,7 +58,6 @@ class Nes_laundry extends CI_Model {
 	{
 		//insert tabel induk
 		$this->db->insert('laundry_induk',$data);
-		// return TRUE;
 
 		//insert tabel anakan
 		//ambil id terbesar dari tabel induk
@@ -103,27 +101,13 @@ class Nes_laundry extends CI_Model {
 		}
 	}
 
-	// public function pesanan_user($where)
-	// {
-
-	// 	 $this->db->select('nama, alamat, no_hp, tgl_masuk');
-		
-	// 	// $this->db->where('date(tanggal) >=', $tanggal_satuan);
-	// 	$this->db->where($where);
-		
-	// 	$this->db->order_by('id');
-	// 	$data=$this->db->get('laundry_induk');
-	// 	return $data->result();
-
-	// }
-
 	public function baru_tabel_rekap_penjualan()
 	{
 		$this->db->select("laundry_anakan.*, laundry_induk.nama, laundry_induk.alamat, laundry_induk.no_hp, laundry_induk.tgl_masuk, laundry_induk.tgl_keluar");
 		$this->db->join('laundry_anakan', 'laundry_induk.id = laundry_anakan.id_laundry_induk');
 		$this->db->where('tgl_masuk', $this->input->get('tanggal'));
+		$this->db->where('status', 'selesai');
 		
-		// $this->db->order_by("jenis, kg, harga");
 		$panggil_data = $this->db->get('laundry_induk');
 		return $panggil_data->result();
 	}
@@ -138,6 +122,17 @@ class Nes_laundry extends CI_Model {
 		return $data->result();
 	}
 
-	// SELECT laundry_anakan.*, laundry_induk.nama, laundry_induk.alamat, laundry_induk.no_hp, laundry_induk.tgl_masuk, laundry_induk.tgl_keluar FROM `laundry_induk` JOIN laundry_anakan ON (laundry_induk.id = laundry_anakan.id_laundry_induk)
+	public function tampil_data_bulan()
+	{
+		$this->db->select("laundry_anakan.*, laundry_induk.nama, laundry_induk.alamat, laundry_induk.no_hp, laundry_induk.tgl_masuk, laundry_induk.tgl_keluar");
+		$this->db->join('laundry_anakan', 'laundry_induk.id = laundry_anakan.id_laundry_induk');
+		$this->db->like('tgl_masuk', $this->input->get('data_bulan'), 'after');
+		$this->db->where('status', 'selesai');
+
+		// SELECT laundry_anakan.*, laundry_induk.nama, laundry_induk.alamat, laundry_induk.no_hp, laundry_induk.tgl_masuk, laundry_induk.tgl_keluar FROM `laundry_induk` JOIN laundry_anakan ON (laundry_induk.id = laundry_anakan.id_laundry_induk) WHERE tgl_masuk LIKE '2019-04%'
+		
+		$tabel_bulan = $this->db->get('laundry_induk');
+		return $tabel_bulan->result();
+	}
 }
 

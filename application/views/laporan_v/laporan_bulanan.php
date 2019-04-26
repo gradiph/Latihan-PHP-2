@@ -35,23 +35,21 @@ $this->load->view('template/sidebar');
 
 <!-- Main content -->
 <section class="content">
-    
     <div class="container text-center py-3" style="width: 500px; margin-top: 50px;">
-        <table class="table" style="width: 500px;">
-            <caption class="text-dark" style="font-weight: bold;">Menampilkan data harian</caption>
-            <h2 class="text-center py-3">Data Penjualan</h2>
-            <form action="<?php echo base_url(); ?>index.php/LAPORAN_COL/Laporan_col/tabel_laporan_laundry" method="get">
-            <tr>
-                <th><label for="input_tanggal_satuan">Tanggal Harian</label></th>
-                    <td><input type="date" name="tanggal" id="input_tanggal_satuan" class="form-control" value=""></td>
-
-            </tr>
-            <tr>
-                <td><input type="submit" name="simpan" class="btn btn-primary"></td>
-            </tr>
-            </form>
-        </table>
-        </div>
+        <h2 class="text-center py-3">Data Penjualan</h2>
+            <table class="table" style="width: 500px;">
+                <caption class="text-dark" style="font-weight: bold;">Menampilkan Data Menurut Bulan</caption>
+                    <form action="<?php echo base_url(); ?>index.php/LAPORAN_COL/LAPORAN_BULANAN_COL/tabel_bulanan" method="get">
+                        <tr>
+                            <th><label for="input_tanggal_satuan">Input Bulan</label></th>
+                                <td><input type="month" name="data_bulan" id="input_tanggal_satuan" class="form-control" value=""></td>
+                        </tr>
+                        <tr>
+                            <td><input type="submit" name="simpan" class="btn btn-primary"></td>
+                        </tr>
+                    </form>
+            </table>
+    </div>
 </section>
 
 

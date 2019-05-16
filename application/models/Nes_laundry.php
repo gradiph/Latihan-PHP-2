@@ -134,5 +134,25 @@ class Nes_laundry extends CI_Model {
 		$tabel_bulan = $this->db->get('laundry_induk');
 		return $tabel_bulan->result();
 	}
+
+	//INPUT TAMBAH KE MASTER JENIS LAUNDRY
+	public function input_tambah_master_jenis($data)
+	{
+		$this->db->insert('master_jenis_laundry',$data);
+		return TRUE;
+	}
+
+	//INPUT EDIT KE MASTER JENIS LAUNDRY
+	public function input_edit_master_jenis($data, $where)
+	{
+		// $this->db->where('jenis', $this->input->get('jenis_satu'));
+		$this->db->where($where);
+		$this->db->update('master_jenis_laundry', $data);
+		return TRUE;
+	}
+
+
+
+
 }
 

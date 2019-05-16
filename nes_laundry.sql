@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 23, 2019 at 05:15 PM
+-- Generation Time: May 16, 2019 at 04:32 PM
 -- Server version: 10.1.33-MariaDB
 -- PHP Version: 7.2.6
 
@@ -57,7 +57,8 @@ INSERT INTO `laundry_anakan` (`id`, `id_laundry_induk`, `jenis`, `kg`, `harga`) 
 (29, 9, 'pakaian', 100, 1200),
 (30, 9, 'motor', 2, 1200),
 (31, 9, 'pakaian', 100, 13213),
-(32, 10, 'pakaian', 444, 12);
+(32, 10, 'pakaian', 444, 12),
+(33, 11, 'tirta ines', 12, 264);
 
 -- --------------------------------------------------------
 
@@ -80,12 +81,35 @@ CREATE TABLE `laundry_induk` (
 --
 
 INSERT INTO `laundry_induk` (`id`, `nama`, `alamat`, `no_hp`, `tgl_masuk`, `tgl_keluar`, `status`) VALUES
-(1, 'rossi', 'itali', '09211222', '2019-04-04', '2019-04-06', 'Belum Dikerjakan'),
-(4, 'nasution', 'uber', '912313913', '2019-04-08', '2019-04-10', 'Belum Dikerjakan'),
-(5, 'Gradi', 'nangor', '9131313199', '2019-04-08', '2019-04-10', 'Belum dikerjakan'),
-(8, 'fany', 'uber', '131312213', '2019-04-08', '2019-04-10', 'Belum dikerjakan'),
-(9, 'lorexo', 'spain', '13213123', '2019-04-10', '2019-05-10', 'Belum dikerjakan'),
-(10, 'om', 'pasir impun', '13131231', '2019-04-08', '2019-04-17', 'Belum dikerjakan');
+(1, 'rossi', 'itali', '09211222', '2019-04-04', '2019-04-06', 'Menyetrika Laundry Laundry'),
+(4, 'nasution', 'uber', '912313913', '2019-04-08', '2019-04-10', 'Menimbang Laundry'),
+(5, 'Gradi', 'nangor', '9131313199', '2019-04-08', '2019-04-10', 'Menimbang Laundry'),
+(8, 'fany', 'uber', '131312213', '2019-04-08', '2019-04-10', 'Selesai'),
+(9, 'lorexo', 'spain', '13213123', '2019-05-15', '2019-05-10', 'Selesai'),
+(10, 'om', 'pasir impun', '13131231', '2018-04-08', '2019-04-17', 'Selesai'),
+(11, 'Gradi1', 'uber', '23131', '2019-05-14', '2019-05-31', 'Belum dikerjakan');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `master_jenis_laundry`
+--
+
+CREATE TABLE `master_jenis_laundry` (
+  `id` int(11) NOT NULL,
+  `jenis` varchar(50) NOT NULL,
+  `harga` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `master_jenis_laundry`
+--
+
+INSERT INTO `master_jenis_laundry` (`id`, `jenis`, `harga`) VALUES
+(1, 'Gradi okeh ines', 1162),
+(2, 'Inesasdasda', 2147483647),
+(17, 'tirta ines', 22),
+(23, 'Gradi okeh ada', 116);
 
 -- --------------------------------------------------------
 
@@ -106,7 +130,7 @@ CREATE TABLE `master_pegawai` (
 INSERT INTO `master_pegawai` (`id`, `username`, `password`) VALUES
 (1, 'baruna', '12345'),
 (2, 'Gradi', '123456'),
-(7, 'ronaldo', '202cb962ac59075b964b07152d234b70');
+(9, 'ines', 'ae21370e3292d3adfe5fbdbe6c9d702d');
 
 --
 -- Indexes for dumped tables
@@ -126,6 +150,12 @@ ALTER TABLE `laundry_induk`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `master_jenis_laundry`
+--
+ALTER TABLE `master_jenis_laundry`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `master_pegawai`
 --
 ALTER TABLE `master_pegawai`
@@ -139,19 +169,25 @@ ALTER TABLE `master_pegawai`
 -- AUTO_INCREMENT for table `laundry_anakan`
 --
 ALTER TABLE `laundry_anakan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT for table `laundry_induk`
 --
 ALTER TABLE `laundry_induk`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT for table `master_jenis_laundry`
+--
+ALTER TABLE `master_jenis_laundry`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `master_pegawai`
 --
 ALTER TABLE `master_pegawai`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- Constraints for dumped tables

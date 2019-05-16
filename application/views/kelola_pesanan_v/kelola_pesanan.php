@@ -68,7 +68,7 @@ $this->load->view('template/sidebar');
                                     <td style="border: 1px solid black"><?php echo $value->jenis; ?></td>
                                     <td style="border: 1px solid black"><?php echo $value->kg; ?></td>
                                     <td style="border: 1px solid black"><?php echo $value->harga; ?></td>
-                                    <td style="border: 1px solid black"><?php echo $value->status; ?></td>
+                                    <td style="border: 1px solid black" class="span-status"><?php echo $value->status; ?></td>
                                     <td>  
                                     <select class="select-status">
                                             <option data-id="<?php echo $value->id; ?>" data-status="Belum Dikerjakan">Belum Dikerjakan</option>

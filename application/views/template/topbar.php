@@ -4,7 +4,7 @@
     <div class="wrapper">
 
         <header class="main-header">
-            <a href="#" class="logo"><b>Nes</b>Laundry</a>
+            <a href="#" class="logo"><b></b></a>
             <!-- Header Navbar: style can be found in header.less -->
             <nav class="navbar navbar-static-top" role="navigation">
                 <!-- Sidebar toggle button-->

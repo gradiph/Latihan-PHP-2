@@ -54,9 +54,26 @@ $this->load->view('template/sidebar');
                             <th><label for="no_hp">No Hp</label></th>
                                 <td><input type="number" name="no_hp" id="no_hp" class="form-control" required autofocus maxlength="20" placeholder="Input No Hp"></td>
                         </tr>
-                        <tr>
+                        <!-- <tr>
                             <th><label for="jenis">Jenis</label></th>
                                 <td><input type="text" name="jenis" id="jenis" class="form-control" required autofocus maxlength="20" placeholder="Input Jenis Pakaian"></td>
+                        </tr> -->
+                        <tr>
+                            <th><label for="jenis">Jenis</label></th>
+                                <td>
+                                    <select class="form-control" id="jenis" required name="jenis">
+                                        <option value="">Pilih Jenis</option>
+                                        <?php 
+                                        foreach ($ambil_jenis->result() as $row)
+                                        {
+                                            ?>
+                                            <!-- $row adalah name dari select class atau nama ID -->
+                                            <option value="<?php echo $row->jenis; ?>" data-harga="<?php echo $row->harga; ?>"><?php echo $row->jenis; ?></option>
+                                            <?php
+                                        }
+                                         ?>
+                                </td>
+                                    </select>
                         </tr>
                         <tr>
                             <th><label for="kg">Kilogram</label></th>
@@ -64,7 +81,7 @@ $this->load->view('template/sidebar');
                         </tr>
                         <tr>
                             <th><label for="harga">Harga</label></th>
-                                <td><input type="text" name="harga" id="harga" class="form-control" autofocus maxlength="20" placeholder="Input Harga"></td>
+                                <td><input type="text" name="harga" id="harga" class="form-control" autofocus maxlength="20" placeholder="Input Harga" readonly></td>
                         </tr>
                         <tr>
                             <th><label for="tgl_masuk">Tanggal Masuk</label></th>
@@ -156,6 +173,37 @@ $this->load->view('template/js');
                 }
             );
         });
+    });
+
+    //ketika kg diisi
+    $("#kg").keyup(function (){
+        //HITUNG HARGA
+        //rumus : total harga = harga satuan jenis x satuan kilo
+        //cara 1 : .data("harga")
+        //cara 2 : .attr("data-harga")
+        //cara singkat menulus value di jquery : .val()
+        var hasil = $("option:selected").attr("data-harga") * $("#kg").val();
+
+        if($("option:selected").val() != "") {
+            //TAMPILKAN HASIL di HARGA
+            $("#harga").val(hasil);
+        }
+
+    });
+
+    //ketika kilogram sudah diisi dan jenis dipilih
+    $("#jenis").change(function () {
+        if ($("#kg").val() != "") {
+            //HITUNG HARGA
+            //rumus : total harga = harga satuan jenis x satuan kilo
+            //cara 1 : .data("harga")
+            //cara 2 : .attr("data-harga")
+            //cara singkat menulus value di jquery : .val()
+            var hasil = $("option:selected").attr("data-harga") * $("#kg").val();
+
+            //TAMPILKAN HASIL di HARGA
+            $("#harga").val(hasil);
+        }
     });
 </script>
 

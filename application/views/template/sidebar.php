@@ -47,6 +47,12 @@
                     <li><a href="<?php echo site_url('LAPORAN_COL/Laporan_bulanan_col') ?>"><i class="fa fa-circle-o"></i> Laporan Bulanan</a></li>
                 </ul>
             </li>
+            <li>
+                <a href="<?php echo site_url('MASTER_JENIS_LAUNDRY_COL/master_jenis_laundry_col'); ?>">
+                    <i class="fa fa-th"></i>
+                    <span>Master Jenis Laundry</span>
+                </a>
+            </li>     
         </ul>
     </section>
     <!-- /.sidebar -->

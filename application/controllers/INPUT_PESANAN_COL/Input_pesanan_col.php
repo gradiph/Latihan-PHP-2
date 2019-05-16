@@ -5,7 +5,12 @@ class INPUT_PESANAN_COL extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->view('input_pesanan_v/input_pesanan');
+		$panggil_jenis = $this->db->get('master_jenis_laundry');
+
+		$jenis=array();
+		$jenis['ambil_jenis'] = $panggil_jenis;
+
+		$this->load->view('input_pesanan_v/input_pesanan', $jenis);
 	}
 
 	public function input_pesanan_pegawai()

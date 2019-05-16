@@ -46,7 +46,7 @@ $this->load->view('template/sidebar');
     
    <div class="container">
          <h2 class="text-center" style="text-align: center; margin-top: 50px;">Rekap Penjualan</h2>
-        <h3 class="text-center" style="text-align: center;">Tanggal : <?php echo date("d-F-Y", strtotime($tanggal)) ?></h3>
+        <h3 class="text-center" style="text-align: center;">Tanggal : <?php echo date("d F Y", strtotime($tanggal)) ?></h3>
         <div class="row">
             <div class="col-md-12">
                 <table class="table" style="border: 1px solid black" border="1">  

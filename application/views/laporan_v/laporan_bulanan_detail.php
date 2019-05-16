@@ -45,7 +45,7 @@ $this->load->view('template/sidebar');
 <section class="content">
    <div class="container">
         <h2 class="text-center" style="text-align: center; margin-top: 30px;">Rekap Penjualan</h2>
-        <h3 class="text-center" style="text-align: center;">Bulan : <?php echo date("F-Y", strtotime($data_bulan)) ?></h3>
+        <h3 class="text-center" style="text-align: center;">Bulan : <?php echo date("F Y", strtotime($data_bulan)) ?></h3>
         <div class="row">
             <div class="col-md-12">
                 <table class="table" style="border: 1px solid black" border="1">  
@@ -58,7 +58,6 @@ $this->load->view('template/sidebar');
                             <th style="border: 1px solid black">Tgl Masuk/Tgl Keluar</th>
                             <th style="border: 1px solid black">Harga</th>
                         </tr>
-
                     </thead>
                     <tbody>
                     <?php 
@@ -109,8 +108,8 @@ $this->load->view('template/sidebar');
                         }
                         
                      ?>
-                     </tbody>
-                     <tfoot>
+                    </tbody>
+                    <tfoot>
                         <tr style="font-weight: bold;" >
                             <td class="text-left" colspan="4" style="border: 1px solid black"></td>
                             <td class="text-left" style="border: 1px solid black">Jumlah</td>

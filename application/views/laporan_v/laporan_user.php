@@ -16,10 +16,17 @@ $this->load->view('template/head');
 <!-- bootstrap wysihtml5 - text editor -->
 <link href="<?php echo base_url('assets/AdminLTE-2.0.5/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css') ?>" rel="stylesheet" type="text/css" />
 <style>
-    .btn-nama {
+    .data-nama {
         text-decoration: underline;
     }
     .btn-nama:hover {
+        color: blue;
+    }
+
+    .export-pdf {
+        text-decoration: underline;
+    }
+    .export-pdf:hover {
         color: blue;
     }
 </style>
@@ -123,6 +130,13 @@ $this->load->view('template/sidebar');
                         </tr>
                     </tfoot>
                 </table>
+                <?php 
+
+                $harian = date_format(date_create($this->input->get('tanggal')), "m"); 
+                 ?>
+                    <a href="<?php echo site_url('PDF_COL/pdf_col_harian/laporan_pdf_harian?tanggal='.$harian) ?> ">
+                            <span class="export-pdf">Export Pdf</span>
+
             </div>
         </div>
     </div>

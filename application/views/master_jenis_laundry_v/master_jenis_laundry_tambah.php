@@ -12,10 +12,6 @@
                             <td><input type="text" name="jenis_satu" id="jenis" class="form-control" placeholder="input tambahan jenis"></td>
                             <td><input type="text" name="harga_satu" id="harga" class="form-control" placeholder="input tambahan harga"></td>
                         </tr>
-                        <tr>
-                            <td><input type="text" name="jenis_dua" id="jenis" class="form-control" placeholder="input tambahan jenis"></td>
-                            <td><input type="text" name="harga_dua" id="harga" class="form-control" placeholder="input tambahan harga"></td>
-                        </tr>
                     </tbody>
         </table>
         <button type="submit" class="btn btn-primary form-control">Submit</button>

@@ -101,6 +101,7 @@ class Nes_laundry extends CI_Model {
 		}
 	}
 
+	//yang ini
 	public function baru_tabel_rekap_penjualan()
 	{
 		$this->db->select("laundry_anakan.*, laundry_induk.nama, laundry_induk.alamat, laundry_induk.no_hp, laundry_induk.tgl_masuk, laundry_induk.tgl_keluar");
@@ -135,6 +136,19 @@ class Nes_laundry extends CI_Model {
 		return $tabel_bulan->result();
 	}
 
+	public function coba_m_pdf()
+	{
+		$this->db->select("laundry_anakan.*, laundry_induk.nama, laundry_induk.alamat, laundry_induk.no_hp, laundry_induk.tgl_masuk, laundry_induk.tgl_keluar");
+		$this->db->join('laundry_anakan', 'laundry_induk.id = laundry_anakan.id_laundry_induk');
+		$this->db->like('tgl_masuk', $this->input->get('data_bulan'), 'after');
+		$this->db->where('status', 'selesai');
+
+		// SELECT laundry_anakan.*, laundry_induk.nama, laundry_induk.alamat, laundry_induk.no_hp, laundry_induk.tgl_masuk, laundry_induk.tgl_keluar FROM `laundry_induk` JOIN laundry_anakan ON (laundry_induk.id = laundry_anakan.id_laundry_induk) WHERE tgl_masuk LIKE '2019-04%'
+		
+		$tabel_bulan = $this->db->get('laundry_induk');
+		return $tabel_bulan->result();
+	}
+
 	//INPUT TAMBAH KE MASTER JENIS LAUNDRY
 	public function input_tambah_master_jenis($data)
 	{
@@ -149,6 +163,17 @@ class Nes_laundry extends CI_Model {
 		$this->db->where($where);
 		$this->db->update('master_jenis_laundry', $data);
 		return TRUE;
+	}
+
+	public function laporan_pdf()
+	{
+		$this->db->select("laundry_anakan.*, laundry_induk.nama, laundry_induk.alamat, laundry_induk.no_hp, laundry_induk.tgl_masuk, laundry_induk.tgl_keluar");
+		$this->db->join('laundry_anakan', 'laundry_induk.id = laundry_anakan.id_laundry_induk');
+		// $this->db->where('tgl_masuk', $this->input->get('tanggal'));
+		$this->db->where('status', 'selesai');
+		
+		$panggil_data = $this->db->get('laundry_induk');
+		return $panggil_data->result();
 	}
 
 

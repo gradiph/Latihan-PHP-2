@@ -80,7 +80,7 @@ $this->load->view('template/sidebar');
                             <td style="border: 1px solid black" class="text-center"><?php echo $no++ ?></td>
                             <td style="border: 1px solid black" class="text-center"><?php echo $value->jenis; ?></td>
                             <td style="border: 1px solid black" class="text-center"><?php echo $value->harga; ?></td>
-                            <td style="border: 1px solid black" class="text-center"><span class="btn-nama data-nama">TAMBAH</span></td>
+                          
                            <!--  <td style="border: 1px solid black" class="text-center"><span class="btn-edit data-edit">EDIT</span></td> -->
                            <td style="border: 1px solid black" class="text-center"><span class="btn-edit" onclick="callModal(this)" data-toggle="modal" data-target="#exampleModal" data-jenis_satu="<?= $value->jenis ?>" data-harga_satu="<?= $value->harga ?>" data-uid="<?= $value->id ?>">EDIT</span></td>
                            <!-- <td style="border: 1px solid black" class="text-center"><span class="btn-edit" onclick="callModal($(this))" data-toggle="modal" data-target="#exampleModal" data-jenis="<?= $value->jenis ?>" data-harga="<?= $value->harga ?>" data-uid="<?= $value->id ?>">EDIT</span></td> -->
@@ -91,8 +91,11 @@ $this->load->view('template/sidebar');
                         ?>
                     </tbody>
                 </table>
+            <span class="btn-nama data-nama">TAMBAH</span>
         </div>
 </section>
+
+
 
 <!-- TAG FORM UTK MENGAPUS -->
 <form action="<?php echo base_url(); ?>index.php/MASTER_JENIS_LAUNDRY_COL/Master_jenis_laundry_col/hapus_data" method="post" id="id_hapus">

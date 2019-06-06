@@ -22,6 +22,13 @@ $this->load->view('template/head');
     .btn-nama:hover {
         color: blue;
             }
+    .export-pdf {
+        text-decoration: underline;
+            }
+    .export-pdf:hover {
+        color: blue;
+            }
+
 </style>
 
 <?php
@@ -119,6 +126,12 @@ $this->load->view('template/sidebar');
                         </tr>
                     </tfoot>
                 </table>
+                <?php 
+                $bulan = date_format(date_create($this->input->get('data_bulan')),"m");
+                 ?>
+                    <a href="<?php echo site_url('PDF_COL/pdf_col/laporan_pdf?data_bulan='.$bulan)?>">
+                       <span class="export-pdf">Export PDF</span> 
+                </a>
             </div>
         </div>
     </div>
